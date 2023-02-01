@@ -1,0 +1,23 @@
+.text {
+  text-align: left;
+  font-weight: bold;
+  font-size: 43px;
+}
+.txt {
+  text-align: left;
+  letter-spacing: 0px;
+  color: #ffffff;
+  font-size: 16px;
+}
+.form {
+  padding-top: 12%;
+}
+
+body{
+    overflow-x: hidden;
+    /* margin: 0px; */
+}
+.all{
+    height: 100vh !important;
+}
+
