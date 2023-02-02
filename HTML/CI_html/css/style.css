@@ -1,3 +1,8 @@
+body{
+  overflow-x: hidden;
+  margin: 0px;
+}
+
 .text {
   text-align: left;
   font-weight: bold;
@@ -9,15 +14,26 @@
   color: #ffffff;
   font-size: 16px;
 }
-.form {
+/* .form {
   padding-top: 12%;
 }
 
 body{
     overflow-x: hidden;
-    /* margin: 0px; */
+    /* margin: 0px; 
 }
 .all{
     height: 100vh !important;
 }
+ */
 
+ .all{
+  height: 100vh; 
+  padding: 0px !important;
+ }
+ .all_height{
+   height: 100%;
+ }
+ .fp{
+  font-size: 0.6vw;
+ }

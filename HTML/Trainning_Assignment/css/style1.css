@@ -1,0 +1,74 @@
+.img{
+    box-shadow: 0px 4px 31px #0000000A;
+border: 20px solid #FFFFFF;
+border-radius: 50%;
+width: 100%;
+}
+.row_back{
+    padding: 8% 10%;
+}
+.text{
+    font-size: 40px;
+    margin-top: 3%;
+}
+*{
+    font-family: Roboto;
+}
+.log-txt{
+    font-size: 25px;
+    margin-top: 2%;
+    
+}
+.loginpage{
+    margin-top: 72px;
+}
+.back{
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+}
+.un{
+    width: 429px;
+height: 49px;
+border: 1px solid #ADADAD;
+border-radius: 5px;
+margin-top: 1%;
+}
+.pw{
+    width: 429px;
+    height: 49px;
+    border: 1px solid #ADADAD;
+    border-radius: 5px;
+    margin-top: 4%; 
+}
+.btn{
+    background: #C8242F 0% 0% no-repeat padding-box;
+border-radius: 23px;
+width: 138px;
+height: 45px;
+margin-top: 10%;
+color: white;
+}
+.fp{
+    margin-top: 13%; 
+    
+}
+
+ .container-fluid{
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+    
+} 
+
+  @media only screen and (min-width : 360px) and (max-width: 520px){
+    .un{
+        width: 100%;
+    }
+    .pw{
+        width: 100%;
+    }
+    .lf{
+        width: 100%;
+    }
+    .ar{
+        width: 100%;
+    }
+    
+}  
