@@ -22,3 +22,18 @@ Route::get("company",[CompanyController::class,'show']);
 
 Route::post("company/store",[CompanyController::class,'store']);
 
+Route::get("display",[CompanyController::class,'display']);
+
+Route::get("create",[CompanyController::class,'show']);
+
+Route::get("edit/{id}",[CompanyController::class,'edit']);
+
+Route::post("update/{id}",[CompanyController::class,'update']);
+
+Route::get("delete/{id}",[CompanyController::class,'destroy']);
+
+
+
+
+
+
