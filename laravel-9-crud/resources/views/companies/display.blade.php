@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,19 +10,25 @@
 </head>
 <body>
 
-<body>
+<body> -->
+
+@extends('layouts.app')
+@section('content')
+
     <div class="container mt-2">
-        <div class="row">
+
+    <div class="row">
             <div class="col-lg-12 margin-tb">
-                <div class="pull-left">
-                    <h2>Laravel 9 CRUD Example Tutorial</h2>
-                </div>
                 <div class="pull-right mb-2">
                     <a class="btn btn-success " href="/create"> Create Company</a>
                 </div>
-                
             </div>
         </div>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
         
         <table class="table table-bordered">
             <thead>
@@ -31,6 +38,7 @@
                     <th>Company Email</th>
                     <th>Company Address</th>
                     <th width="280px">Action</th>
+                    <th>Image upload</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,16 +49,19 @@
                         <td>{{ $company->email }}</td>
                         <td>{{ $company->address }}</td>
                         <td>
-                            <a class="btn btn-danger " href="/edit/{{$company->id}}">Edit</a>
+                            <a class="btn btn-primary " href="/edit/{{$company->id}}">Edit</a>
                             <a class="btn btn-danger " href="/delete/{{$company->id}}">Delete</a>
-                        </td> 
+                        </td>
+                        <td> <img src=" image/{{$company->image}} " width="80px" height="80" ></td>
                         <!-- {edit}={$company->id} -->
                     </tr>
                     @endforeach
             </tbody>
         </table>
-        
     </div>
 
-</body>
-</html>
+@endsection('content')
+
+
+<!-- </body>
+</html> -->

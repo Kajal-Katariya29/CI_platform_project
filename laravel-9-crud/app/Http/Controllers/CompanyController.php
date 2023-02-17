@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
     function show()
     {
-        return view('company');
+        return view('companies.company');
     }
     function store(Request $request)
     {
@@ -25,22 +26,34 @@ class CompanyController extends Controller
            $company->email=$request->get('email');
            $company->address=$request->get('address');
            $company->save();
-        //Company::create($request->all());
 
-        return redirect('/display');
+           if ($request->hasFile('image')) {
+            $image = time().'.'.request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('image'), $image);
+              }
+           $data = $request->all();
+           $data['image'] = $image;
+    
+           Company::create($data, $request->post());
+
+
+          //Company::create($request->all());
+
+        return redirect('/companies.display')->with('success','Company has been created successfully.');
         //  echo "Data send Sucessfully....";    
     
     }
     function display(Request $request){
         $companies=Company::all();
-        return view('display',['companies'=>$companies]);
+        $companies = Company::orderBy('id','desc')->paginate(5);
+        return view('companies.display',['companies'=>$companies,'user' => Auth::user()]);
         // return redirect('show');
     }
 
     function edit(Request $request, $id){
        $companies=Company::find($id);
        //dd($companies->name);
-       return view('edit',['companies'=>$companies]);
+       return view('companies.edit',['companies'=>$companies]);
     }
     
     function update(Request $request, Company $company,$id){
@@ -50,15 +63,25 @@ class CompanyController extends Controller
         $company->address=$request->get('address');
         $company->save();
 
-        return redirect('display');
+        if ($request->hasFile('image')) {
+            $image = time().'.'.request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('image'), $image);
+        }
+        $data = $request->all();
+        $data['image'] = $image;
+
+        $company->fill( $data,$request->post())->save();
+
+        return redirect('display')->with('success','Company Has Been updated successfully');;
      }
    
      function destroy(Request $request, $id){
         $companies=Company::find($id);
         $companies->delete();
-        return redirect('display');
+        return redirect('display')->with('success','Company has been deleted successfully');
+     }    
+     function back()
+     {
+         return redirect('display');
      }
-
-     
-    
 }
